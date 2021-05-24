@@ -9,7 +9,9 @@ mongoose.connect('mongodb://localhost/biz_app_api', {
 }).then(() => console.log('Connected to MongoDB...'))
   .catch(err => console.error('Could not connect to MongoDB...'));
 
-  app.use(express.json());// midelware that make all req & res in the app be JSON type only.
+app.use(express.json());// midelware that make all req & res in the app be JSON type only.
+
+app.use('/api/users', users);
 
 
 const port = 3900;
