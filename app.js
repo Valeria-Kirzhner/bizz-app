@@ -14,6 +14,7 @@ mongoose.connect('mongodb://localhost/biz_app_api', {
 app.use(express.json());// midelware that make all req & res in the app be JSON type only.
 
 app.use('/api/users', users);
+app.use('/api/auth', auth);
 
 
 const port = 3900;
