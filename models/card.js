@@ -38,7 +38,8 @@ const cardSchema = new mongoose.Schema({
     minlength: 3,
     maxlength: 99999999999,
     unique: true
-  }
+  },
+   user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 const Card = mongoose.model('Card', cardSchema);
