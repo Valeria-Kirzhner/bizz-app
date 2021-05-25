@@ -57,5 +57,16 @@ function validateCard(card) {
   return schema.validate(card);
 }
 
+async function generateBizNumber(Card) {
+ 
+  while (true) {
+    let randomNumber = _.random(1000, 999999);
+    let card = await Card.findOne({ bizNumber: randomNumber });
+    if (!card) return String(randomNumber);
+  }
+ 
+}
+
 exports.Card = Card;
 exports.validateCard = validateCard;
+exports.generateBizNumber = generateBizNumber;
