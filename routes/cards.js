@@ -5,6 +5,16 @@ const auth = require('../middleware/auth');
 const router = express.Router();
 
 
+router.delete('/:id', auth, async (req, res) => {
+ 
+    const card = await Card.findOneAndRemove({ _id: req.params.id, user_id: req.user._id });
+    if (!card) return res.status(404).send('The card with the given ID was not found.');
+    res.send(card);
+   
+  });
+
+  
+
 router.put('/:id', auth, async (req, res) => {
  
     const { error } = validateCard(req.body);
@@ -18,7 +28,7 @@ router.put('/:id', auth, async (req, res) => {
    
   });
 
-  
+
 
 router.get('/:id', auth, async (req, res) => {
  
