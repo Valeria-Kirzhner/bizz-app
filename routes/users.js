@@ -11,6 +11,16 @@ const getCards = async (cardsArray) => {
   return cards;
 };
 
+router.get("/cards", auth, async (req, res) => {
+  if (!req.query.numbers) res.status(400).send("Missing numbers data");
+
+  let data = {};
+  data.cards = req.query.numbers.split(",");
+
+  const cards = await getCards(data.cards);
+  res.send(cards);
+});
+
 router.patch("/cards", auth, async (req, res) => {
   const { error } = validateCards(req.body);
   if (error) res.status(400).send(error.details[0].message);
