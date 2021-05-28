@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
         <Navbar />
       </header>
       <main style={{ minHeight: 900 }}></main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </React.Fragment>
   );
 }
