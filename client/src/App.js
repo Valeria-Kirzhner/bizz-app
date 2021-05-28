@@ -8,7 +8,7 @@ function App() {
       <header>
         <Navbar />
       </header>
-      <main></main>
+      <main style={{ minHeight: 900 }}></main>
       <footer></footer>
     </React.Fragment>
   );
