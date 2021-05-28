@@ -17,7 +17,7 @@ router.patch("/cards", auth, async (req, res) => {
 
   const cards = await getCards(req.body.cards);
   if (cards.length != req.body.cards.length)
-    res.status(400).send("Card numbers don't match");
+    res.status(400).send("The cards numbers don't match");
 
   let user = await User.findById(req.user._id);
   user.cards = req.body.cards;
