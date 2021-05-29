@@ -35,8 +35,8 @@ class Signup extends Form {
           <div className="col-lg-6">
             <form onSubmit={this.handleSubmit} autoComplete="off" method="POST">
               {this.renderInput("email", "Email", "email")}
-              {this.renderInput("password", "Password", "password")}
               {this.renderInput("name", "Name")}
+              {this.renderInput("password", "Password", "password")}
               {this.renderButton("Signup")}
             </form>
           </div>
