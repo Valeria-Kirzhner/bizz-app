@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 import Home from "./components/home";
 import About from "./components/about";
 import { Switch, Route } from "react-router-dom";
+import Signup from "./components/signup";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       </header>
       <main style={{ minHeight: 900 }}>
         <Switch>
+          <Route path="/signup" component={Signup} />
           <Route path="/about" component={About} />
           <Route path="/" exact component={Home} />
         </Switch>
