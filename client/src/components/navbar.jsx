@@ -34,7 +34,7 @@ class Navbar extends Component {
                 </NavLink>
               </li>
             </ul>
-            <ul className="navbar-nav ml-auto">
+            <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <NavLink className="nav-item nav-link" to="/signin">
                   Signin
