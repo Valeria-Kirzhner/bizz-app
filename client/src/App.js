@@ -3,6 +3,8 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Home from "./components/home";
+import About from "./components/about";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -11,7 +13,10 @@ function App() {
         <Navbar />
       </header>
       <main style={{ minHeight: 900 }}>
-        <Home />
+        <Switch>
+          <Route path="/about" component={About} />
+          <Route path="/" exact component={Home} />
+        </Switch>
       </main>
       <footer>
         <Footer />
