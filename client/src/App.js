@@ -4,12 +4,15 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Home from "./components/home";
 import About from "./components/about";
-import { Switch, Route } from "react-router-dom";
 import Signup from "./components/signup";
+import { Switch, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <React.Fragment>
+      <ToastContainer />
       <header>
         <Navbar />
       </header>
