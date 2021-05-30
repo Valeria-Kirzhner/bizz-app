@@ -4,6 +4,7 @@ import Joi from "joi-browser";
 import Form from "./common/form";
 import http from "../services/httpService";
 import { apiUrl } from "../config.json";
+import { toast } from "react-toastify";
 
 class Signup extends Form {
   state = {
@@ -23,6 +24,7 @@ class Signup extends Form {
 
     try {
       await http.post(`${apiUrl}/users`, data);
+      toast("A new acoount is opened");
       this.props.history.replace("/home");
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
