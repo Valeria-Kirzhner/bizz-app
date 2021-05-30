@@ -21,7 +21,7 @@ class Signin extends Form {
   render() {
     return (
       <div className="container">
-        <PageHeader titleText="Signin to Real App" />
+        <PageHeader titleText="Signin to Bizz App" />
         <div className="row">
           <div className="col-12">
             <p>You can signin here with your account!</p>
