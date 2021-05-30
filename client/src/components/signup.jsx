@@ -25,7 +25,7 @@ class Signup extends Form {
     try {
       await http.post(`${apiUrl}/users`, data);
       toast("A new acoount is opened");
-      this.props.history.replace("/home");
+      this.props.history.replace("/signin");
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         this.setState({ errors: { email: "Email is taken" } });
