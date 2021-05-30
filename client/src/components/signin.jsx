@@ -2,6 +2,7 @@ import React from "react";
 import PageHeader from "./common/pageHeader";
 import Joi from "joi-browser";
 import Form from "./common/form";
+import userService from "../services/userService";
 
 class Signin extends Form {
   state = {
@@ -14,8 +15,16 @@ class Signin extends Form {
     password: Joi.string().required().min(6).label("Password"),
   };
 
-  doSubmit = () => {
-    console.log("run doSubmit...");
+  doSubmit = async () => {
+    const { email, password } = this.state.data;
+    try {
+      await userService.login(email, password);
+      window.location = "/";
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        this.setState({ errors: { email: ex.response.data } });
+      }
+    }
   };
 
   render() {
