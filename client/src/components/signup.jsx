@@ -17,9 +17,18 @@ class Signup extends Form {
     name: Joi.string().required().min(2).label("Name"),
   };
 
-  doSubmit = () => {
-    // Call the server
-    console.log("Submitted");
+  doSubmit = async () => {
+    const { data } = this.state;
+    data.biz = false;
+
+    try {
+      await http.post(`${apiUrl}/users`, data);
+      this.props.history.replace("/home");
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        this.setState({ errors: { email: "Email is taken" } });
+      }
+    }
   };
   render() {
     return (
