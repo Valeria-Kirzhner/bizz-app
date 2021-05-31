@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
@@ -9,28 +9,39 @@ import Signin from "./components/signin";
 import { Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import userService from "./services/userService";
 
-function App() {
-  return (
-    <React.Fragment>
-      <ToastContainer />
-      <header>
-        <Navbar />
-      </header>
-      <main style={{ minHeight: 900 }}>
-        <Switch>
-            
-          <Route path="/signin" component={Signin} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/about" component={About} />
-          <Route path="/" exact component={Home} />
-        </Switch>
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </React.Fragment>
-  );
+class App extends Component {
+  state = {};
+
+  componentDidMount() {
+    const user = userService.getCurrentUser();
+    this.setState({ user });
+  }
+
+  render() {
+    const { user } = this.state;
+
+    return (
+      <React.Fragment>
+        <ToastContainer />
+        <header>
+          <Navbar user={user} />
+        </header>
+        <main style={{ minHeight: 900 }}>
+          <Switch>
+              
+            <Route path="/signin" component={Signin} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/about" component={About} />
+            <Route path="/" exact component={Home} />
+          </Switch>
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </React.Fragment>
+    );
+  }
 }
-
 export default App;
