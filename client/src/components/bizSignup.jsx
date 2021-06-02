@@ -48,9 +48,9 @@ class BizSignup extends Form {
         <div className="row">
           <div className="col-lg-6">
             <form onSubmit={this.handleSubmit} autoComplete="off" method="POST">
+              {this.renderInput("name", "Name")}
               {this.renderInput("email", "Email", "email")}
               {this.renderInput("password", "Password", "password")}
-              {this.renderInput("name", "Name")}
               {this.renderButton("Next")}
             </form>
           </div>
