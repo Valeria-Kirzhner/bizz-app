@@ -3,6 +3,7 @@ import PageHeader from "./common/pageHeader";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import userService from "../services/userService";
+import { Redirect } from "react-router-dom";
 
 class Signin extends Form {
   state = {
@@ -28,6 +29,8 @@ class Signin extends Form {
   };
 
   render() {
+    if (userService.getCurrentUser()) return <Redirect to="/" />;
+
     return (
       <div className="container">
         <PageHeader titleText="Signin to Bizz App" />
