@@ -13,6 +13,7 @@ import { Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import userService from "./services/userService";
+import ProtectedRoute from "./components/common/protectedRoute";
 
 class App extends Component {
   state = {};
@@ -33,7 +34,11 @@ class App extends Component {
         </header>
         <main style={{ minHeight: 900 }}>
           <Switch>
-            <Route path="/create-card" component={CreateCard} />
+            <ProtectedRoute
+              path="/create-card"
+              component={CreateCard}
+              biz={true}
+            />
             <Route path="/biz-signup" component={BizSignup} />
             <Route path="/logout" component={Logout} />
             <Route path="/signin" component={Signin} />
