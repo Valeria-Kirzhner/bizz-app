@@ -52,6 +52,11 @@ class Navbar extends Component {
                       Signup
                     </NavLink>
                   </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-item nav-link" to="/biz-signup">
+                      Business
+                    </NavLink>
+                  </li>
                 </React.Fragment>
               )}
               {user && (
