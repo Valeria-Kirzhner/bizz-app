@@ -32,9 +32,11 @@ class Navbar extends Component {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-item nav-link" to="/my-cards">
-                  My Cards
-                </NavLink>
+                {user && (
+                  <NavLink className="nav-item nav-link" to="/my-cards">
+                    My Cards
+                  </NavLink>
+                )}
               </li>
             </ul>
             <ul className="navbar-nav ms-auto">

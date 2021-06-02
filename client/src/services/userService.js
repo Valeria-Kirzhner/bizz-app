@@ -5,6 +5,7 @@ import jwtDecode from "jwt-decode";
 const tokenKey = "token";
 
 export function getJwt() {
+  //use for sending the token through the headers in httpService.js
   return localStorage.getItem(tokenKey);
 }
 
