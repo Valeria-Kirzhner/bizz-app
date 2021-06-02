@@ -7,6 +7,7 @@ import About from "./components/about";
 import Signup from "./components/signup";
 import Signin from "./components/signin";
 import Logout from "./components/logout";
+import BizSignup from "./components/bizSignup";
 import { Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -31,6 +32,7 @@ class App extends Component {
         </header>
         <main style={{ minHeight: 900 }}>
           <Switch>
+            <Route path="/biz-signup" component={BizSignup} />
             <Route path="/logout" component={Logout} />
             <Route path="/signin" component={Signin} />
             <Route path="/signup" component={Signup} />
