@@ -1,7 +1,9 @@
 import React from "react";
 import PageHeader from "./common/pageHeader";
 import Joi from "joi-browser";
+import cardService from "../services/cardService";
 import Form from "./common/form";
+import { toast } from "react-toastify";
 
 class CreateCard extends Form {
   state = {
@@ -27,7 +29,13 @@ class CreateCard extends Form {
     bizImage: Joi.string().min(11).max(1024).uri().allow(""),
   };
 
-  doSubmit = async () => {};
+  doSubmit = async () => {
+    const { data } = this.state;
+    if (!data.bizImage) delete data.bizImage;
+    await cardService.createCard(this.state.data);
+    toast("A new card is opened");
+    this.props.history.replace("/my-cards");
+  };
 
   render() {
     return (
