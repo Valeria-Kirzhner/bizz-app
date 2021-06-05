@@ -16,7 +16,7 @@ class MyCards extends Component {
     if (data.length > 0) this.setState({ cards: data });
   }
 
-  deleteCardClientSide = async (cardId) => {
+  deleteCardClientSide = (cardId) => {
     Swal.fire({
       title: "Are you sure you want to delete this card?",
       text: "You won't be able to revert this!",
@@ -25,12 +25,13 @@ class MyCards extends Component {
       confirmButtonColor: "#ff0000",
       cancelButtonColor: "grey",
       confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
         let cards = [...this.state.cards];
         cards = cards.filter((card) => card._id !== cardId); // it will return all users cards exept of the card with the cardId.
         this.setState({ cards });
         toast("The card has been deleted.");
+        await cardService.deleteCard(cardId);
       }
     });
   };
