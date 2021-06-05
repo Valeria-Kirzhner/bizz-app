@@ -21,10 +21,11 @@ const Card = ({ card }) => {
             {card.bizAddress}
           </p>
           <Link to={`/my-cards/edit/${card._id}`}>
-            <i className="fas fa-edit mr-2"></i>Edit
+            <i className="fas fa-edit mr-2 me-2"></i>Edit
           </Link>{" "}
           |
           <Link className="ml-2" to={`/my-cards/delete/${card._id}`}>
+            <i className="far fa-trash-alt ms-2 me-2"></i>
             Delete
           </Link>
         </div>
