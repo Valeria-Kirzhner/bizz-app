@@ -4,6 +4,7 @@ import cardService from "../services/cardService";
 import Card from "./card";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 class MyCards extends Component {
   state = {
@@ -29,6 +30,7 @@ class MyCards extends Component {
         let cards = [...this.state.cards];
         cards = cards.filter((card) => card._id !== cardId); // it will return all users cards exept of the card with the cardId.
         this.setState({ cards });
+        toast("The card has been deleted.");
       }
     });
   };
