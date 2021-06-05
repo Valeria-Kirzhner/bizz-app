@@ -7,7 +7,7 @@ export function getCard(cardId) {
 
 export function editCard(card) {
   const cardId = card._id;
-  delete card._id;
+  delete card._id; //in the backend is waiting validation and it uses for updating and creating new card. New card is not have any id card before creation so i can not send now id in the payload.
   return http.put(`${apiUrl}/cards/${cardId}`, card);
 }
 
