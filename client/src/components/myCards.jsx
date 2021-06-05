@@ -17,16 +17,18 @@ class MyCards extends Component {
 
   deleteCardClientSide = async (cardId) => {
     Swal.fire({
-      title: "Are you sure?",
+      title: "Are you sure you want to delete this card?",
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#ff0000",
+      cancelButtonColor: "grey",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        let cards = [...this.state.cards];
+        cards = cards.filter((card) => card._id !== cardId); // it will return all users cards exept of the card with the cardId.
+        this.setState({ cards });
       }
     });
   };
