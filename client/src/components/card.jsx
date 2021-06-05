@@ -20,7 +20,10 @@ const Card = ({ card }) => {
             <br />
             {card.bizAddress}
           </p>
-          <Link to={`/my-cards/edit/${card._id}`}>Edit</Link> |
+          <Link to={`/my-cards/edit/${card._id}`}>
+            <i className="fas fa-edit mr-2"></i>Edit
+          </Link>{" "}
+          |
           <Link className="ml-2" to={`/my-cards/delete/${card._id}`}>
             Delete
           </Link>
