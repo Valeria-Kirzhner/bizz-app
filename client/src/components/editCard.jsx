@@ -4,6 +4,7 @@ import Joi from "joi-browser";
 import Form from "./common/form";
 import cardService from "../services/cardService";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 class EditCard extends Form {
   state = {
@@ -76,12 +77,9 @@ class EditCard extends Form {
               {this.renderInput("bizPhone", "Business Phone")}
               {this.renderInput("bizImage", "Business Image")}
               {this.renderButton("Update Card")}
-              <button
-                className="btn btn-secondary ml-2"
-                onClick={this.handleCancel}
-              >
-                Cancel
-              </button>
+              <Link className="btn btn-secondary ms-2 mt-2" to="/my-cards">
+                Not now
+              </Link>
             </form>
           </div>
         </div>
