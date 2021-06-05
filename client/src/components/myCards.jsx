@@ -14,6 +14,10 @@ class MyCards extends Component {
     if (data.length > 0) this.setState({ cards: data });
   }
 
+  deleteCardClientSide = async (cardId) => {
+    console.log(cardId);
+  };
+
   render() {
     const { cards } = this.state;
     return (
@@ -31,7 +35,13 @@ class MyCards extends Component {
         </div>
         <div className="row">
           {cards.length > 0 &&
-            cards.map((card) => <Card key={card._id} card={card} />)}
+            cards.map((card) => (
+              <Card
+                key={card._id}
+                card={card}
+                deleteCardClientSide={this.deleteCardClientSide}
+              />
+            ))}
         </div>
       </div>
     );

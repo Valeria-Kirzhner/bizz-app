@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card = ({ card }) => {
+const Card = ({ card, deleteCardClientSide }) => {
   return (
     <div className="col-md-6 col-lg-4 mt-3">
       <div className="card">
@@ -24,7 +24,11 @@ const Card = ({ card }) => {
             <i className="fas fa-edit mr-2 me-2"></i>Edit
           </Link>{" "}
           |
-          <Link className="ml-2" to={`/my-cards/delete/${card._id}`}>
+          <Link
+            className="ml-2"
+            to="#"
+            onClick={() => deleteCardClientSide(card._id)}
+          >
             <i className="far fa-trash-alt ms-2 me-2"></i>
             Delete
           </Link>
