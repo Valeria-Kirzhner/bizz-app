@@ -33,6 +33,7 @@ const cardService = {
   editCard,
   getCard,
   deleteCard,
+  searchCard,
 };
 
 export default cardService;
