@@ -1,6 +1,10 @@
 import http from "./httpService";
 import { apiUrl } from "../config.json";
 
+export function searchCard(bizCardNum) {
+  return http.get(`${apiUrl}/cards/search-card${bizCardNum}`);
+}
+
 export function deleteCard(cardId) {
   return http.delete(`${apiUrl}/cards/${cardId}`);
 }
