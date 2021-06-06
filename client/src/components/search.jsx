@@ -1,24 +1,39 @@
-import React, { Component } from "react";
+import React from "react";
+import Joi from "joi-browser";
+import Form from "./common/form";
+import http from "../services/httpService";
+import { apiUrl } from "../config.json";
+import userService from "../services/userService";
 
-class Search extends Component {
-  state = {};
+class Search extends Form {
+  state = {
+    data: {
+      cardNum: "",
+    },
+    errors: {},
+  };
+
+  schema = {
+    cardNum: Joi.string().required().min(6).label("cardNumber"),
+  };
+
+  doSubmit = async () => {
+    const { cardNum } = this.state.data;
+    try {
+    } catch {}
+  };
+
   render() {
     return (
       <div class="container">
         <div class="row">
           <div class="col-sm-4 col-sm-offset-4 center-block">
-            <div class="input-group rounded mt-3">
-              <input
-                type="search"
-                class="form-control rounded "
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="search-addon"
-              />
-              <span class="input-group-text border-0" id="search-addon">
-                <i class="fas fa-search"></i>
-              </span>
-            </div>
+            <form onSubmit={this.handleSubmit} autoComplete="off" method="POST">
+              <div class="input-group rounded mt-3">
+                {this.renderInput("cardNumber", "Card-Number")}
+                {this.renderButton("Search")}
+              </div>
+            </form>
           </div>
         </div>
       </div>
