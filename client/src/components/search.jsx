@@ -3,39 +3,62 @@ import Joi from "joi-browser";
 import Form from "./common/form";
 import http from "../services/httpService";
 import { apiUrl } from "../config.json";
-import userService from "../services/userService";
+import cardService from "../services/cardService";
 
 class Search extends Form {
   state = {
     data: {
-      cardNum: "",
+      bizNumber: "",
+    },
+    card: {
+      _id: "",
+      bizName: "",
+      bizDescription: "",
+      bizAddress: "",
+      bizPhone: "",
+      bizImage: "",
     },
     errors: {},
   };
 
   schema = {
-    cardNum: Joi.string().required().min(6).label("cardNumber"),
+    bizNumber: Joi.string().required().min(6).label("bizNumber"),
   };
 
   doSubmit = async () => {
-    const { cardNum } = this.state.data;
+    const {
+      data: { bizNumber },
+    } = this.state;
+
     try {
-    } catch {}
+      const { data } = await cardService.searchCard(bizNumber);
+
+      if (data) {
+        this.setState({ card: { ...data } });
+      } else {
+        //      this.setState({ errors: { "No card was found" } });
+        //tostufy
+      }
+    } catch (ex) {
+      //tostufy
+    }
   };
 
   render() {
+    const { bizName } = this.state.card;
     return (
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-4 col-sm-offset-4 center-block">
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-4 col-sm-offset-4 center-block">
             <form onSubmit={this.handleSubmit} autoComplete="off" method="POST">
-              <div class="input-group rounded mt-3">
-                {this.renderInput("cardNumber", "Card-Number")}
+              <div className="input-group rounded mt-3">
+                {this.renderInput("bizNumber", "bizNumber", "number")}
                 {this.renderButton("Search")}
               </div>
             </form>
           </div>
         </div>
+        <div>{bizName}</div>
       </div>
     );
   }
