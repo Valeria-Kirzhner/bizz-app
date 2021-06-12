@@ -50,7 +50,7 @@ class Search extends Form {
           <div className="col-sm-4 col-sm-offset-4 ">
             <form onSubmit={this.handleSubmit} autoComplete="off" method="POST">
               <div className="input-group rounded mt-3">
-                {this.renderInput("bizNumber", "bizNumber", "number")}
+                {this.renderInput("bizNumber", "", "number")}
                 {this.renderButton("Search")}
               </div>
             </form>
