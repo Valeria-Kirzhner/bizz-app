@@ -1,7 +1,7 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-
+import { toast } from "react-toastify";
 import cardService from "../services/cardService";
 
 class Search extends Form {
@@ -35,11 +35,10 @@ class Search extends Form {
       if (data) {
         this.setState({ card: { ...data } });
       } else {
-        //      this.setState({ errors: { "No card was found" } });
-        //tostufy
+        toast("No card was found.");
       }
     } catch (ex) {
-      //tostufy
+      toast("No card was found.");
     }
   };
 
