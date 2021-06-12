@@ -11,9 +11,7 @@ class Home extends Component {
         <Search />
 
         <div className="row">
-          <div className="col-12 mt-4">
-            <h1>Biz App Home Page</h1>
-          </div>
+          <div className="col-12 mt-4"></div>
         </div>
         <div className="row">
           <div className="col-12">

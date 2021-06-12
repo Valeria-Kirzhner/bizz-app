@@ -9,7 +9,7 @@ class About extends Component {
         <PageHeader titleText="Bizz App About Page" />
         <div className="row">
           <div className="col-12 mt-4">
-            <h1>About Bizz App</h1>
+            <h2>About Bizz App</h2>
           </div>
         </div>
         <div className="row">

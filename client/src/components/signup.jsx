@@ -42,7 +42,7 @@ class Signup extends Form {
         <PageHeader titleText="Bizz App Signup Page" />
         <div className="row">
           <div className="col-12 mt-4">
-            <h1>Signup for Bizz App</h1>
+            <h2>Signup for Bizz App</h2>
           </div>
         </div>
         <div className="row">
