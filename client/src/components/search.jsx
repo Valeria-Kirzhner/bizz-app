@@ -3,6 +3,7 @@ import Joi from "joi-browser";
 import Form from "./common/form";
 import { toast } from "react-toastify";
 import cardService from "../services/cardService";
+import FoundCard from "./foundCard";
 
 class Search extends Form {
   state = {
@@ -43,7 +44,8 @@ class Search extends Form {
   };
 
   render() {
-    const { bizName } = this.state.card;
+    const { card } = this.state;
+
     return (
       <div className="container">
         <div className="row">
@@ -56,7 +58,9 @@ class Search extends Form {
             </form>
           </div>
         </div>
-        <div>{bizName}</div>
+        <div>
+          <FoundCard card={card} />
+        </div>
       </div>
     );
   }

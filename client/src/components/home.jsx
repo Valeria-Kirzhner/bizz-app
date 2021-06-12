@@ -8,18 +8,16 @@ class Home extends Component {
     return (
       <div className="container ">
         <PageHeader titleText="Bizz App Home Page" />
+        <div className="col-12 mt-4">
+          <h3 className="text-secondary">Find card:</h3>
+        </div>
         <Search />
 
         <div className="row">
           <div className="col-12 mt-4"></div>
         </div>
         <div className="row">
-          <div className="col-12">
-            <h3>It's all about bussiness</h3>
-            <h4>pDiscover new possibilities </h4>
-            <h4>Create your own card </h4>
-            <h4>Share </h4>
-          </div>
+          <div className="col-12"></div>
         </div>
       </div>
     );
