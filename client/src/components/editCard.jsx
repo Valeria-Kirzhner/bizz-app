@@ -45,6 +45,7 @@ class EditCard extends Form {
       bizAddress: card.bizAddress,
       bizPhone: card.bizPhone,
       bizImage: card.bizImage,
+      bizNumber: card.bizNumber,
     };
   }
 

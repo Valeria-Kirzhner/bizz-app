@@ -15,6 +15,8 @@ const Card = ({ card, deleteCardClientSide }) => {
           <h5 className="card-title">{card.bizName}</h5>
           <p className="card-text">{card.bizDescription}</p>
           <p className="card-text border-top pt-2">
+            <b>Card Number: </b>
+            {card.bizNumber} <br />
             <b>Tel: </b>
             {card.bizPhone}
             <br />
