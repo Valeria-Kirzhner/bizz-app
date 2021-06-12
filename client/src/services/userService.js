@@ -11,6 +11,7 @@ export function getJwt() {
 
 export function logout() {
   localStorage.removeItem(tokenKey);
+  localStorage.removeItem("userInfo");
 }
 
 export function getCurrentUser() {
@@ -25,6 +26,7 @@ export function getCurrentUser() {
 export async function login(email, password) {
   const { data } = await http.post(`${apiUrl}/auth`, { email, password });
   localStorage.setItem(tokenKey, data.token);
+  localStorage.setItem("userInfo", JSON.stringify(getCurrentUser()));
 }
 
 const userService = {
