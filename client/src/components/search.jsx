@@ -1,8 +1,7 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import http from "../services/httpService";
-import { apiUrl } from "../config.json";
+
 import cardService from "../services/cardService";
 
 class Search extends Form {
