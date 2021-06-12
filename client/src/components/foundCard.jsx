@@ -23,9 +23,8 @@ const FoundCard = ({ card, deleteCardClientSide }) => {
             {card.bizAddress}
           </p>
           <Link to={"/"}>
-            <i class="far fa-heart mr-2 me-2"></i>Add To Wish List
+            <i class="far fa-heart mr-2 me-2"></i>Add To WishList
           </Link>{" "}
-          |
         </div>
       </div>
     </div>

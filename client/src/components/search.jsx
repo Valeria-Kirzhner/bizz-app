@@ -58,9 +58,7 @@ class Search extends Form {
             </form>
           </div>
         </div>
-        <div>
-          <FoundCard card={card} />
-        </div>
+        <div>{card.bizName && <FoundCard card={card} />}</div>
       </div>
     );
   }
