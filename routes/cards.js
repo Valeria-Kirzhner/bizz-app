@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/search-card/:bizNumber", async (req, res) => {
   const card = await Card.findOne({ bizNumber: req.params.bizNumber });
-  if (!card) return res.status(404).send("nnn");
+  if (!card) return res.status(404).send("No card was found.");
   res.send(card);
 });
 
