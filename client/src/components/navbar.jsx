@@ -32,6 +32,13 @@ class Navbar extends Component {
                 </NavLink>
               </li>
               <li className="nav-item">
+                {user && (
+                  <NavLink className="nav-item nav-link" to="/users/cards">
+                    Wishlist
+                  </NavLink>
+                )}
+              </li>
+              <li className="nav-item">
                 {user && user.biz && (
                   <NavLink className="nav-item nav-link" to="/my-cards">
                     My Cards
