@@ -22,7 +22,7 @@ const FoundCard = ({ card }) => {
             <br />
             {card.bizAddress}
           </p>
-          <Link to={"/wishlist"}>
+          <Link to={"/users/cards"}>
             <i class="far fa-heart mr-2 me-2"></i>Add To WishList
           </Link>{" "}
         </div>
