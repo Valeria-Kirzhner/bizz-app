@@ -2,12 +2,11 @@ import http from "./httpService";
 import { apiUrl } from "../config.json";
 import jwtDecode from "jwt-decode";
 
-export function toggleWishlist() {
-  let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  let userId = userInfo._id;
-  console.log(userId);
-
-  // return http.patch(`${apiUrl}/users/cards/`);
+export function toggleWishlist(bizNumber) {
+  //let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  //let userId = userInfo._id;
+  let card = [bizNumber];
+  return http.patch(`${apiUrl}/users/cards/`, card);
 }
 
 const tokenKey = "token";
