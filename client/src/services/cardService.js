@@ -2,7 +2,9 @@ import http from "./httpService";
 import { apiUrl } from "../config.json";
 
 export function getWishlist() {
-  return http.get(`${apiUrl}/users/cards/`);
+  const cards = localStorage.getItem("wishlist");
+  console.log(cards);
+  return http.get(`${apiUrl}/users/cards/?numbers=${cards}`);
 }
 
 export function searchCard(bizCardNum) {
@@ -38,6 +40,7 @@ const cardService = {
   getCard,
   deleteCard,
   searchCard,
+  getWishlist,
 };
 
 export default cardService;
