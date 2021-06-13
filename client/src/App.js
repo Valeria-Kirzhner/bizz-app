@@ -11,6 +11,7 @@ import BizSignup from "./components/bizSignup";
 import CreateCard from "./components/createCard";
 import MyCards from "./components/myCards";
 import EditCard from "./components/editCard";
+import Wishlist from "./components/wishlist";
 import { Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -41,6 +42,7 @@ class App extends Component {
               component={EditCard}
               biz={true}
             />
+            <ProtectedRoute path="/users/cards" component={Wishlist} />
             <ProtectedRoute path="/my-cards" component={MyCards} biz={true} />
             <ProtectedRoute
               path="/create-card"
