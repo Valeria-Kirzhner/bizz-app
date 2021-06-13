@@ -21,17 +21,20 @@ const router = express.Router();
 // if true
 // remove from array and save
 
-router.get("/cards", auth, async (req, res) => {
+/* router.get("/cards", auth, async (req, res) => {
+  if (!req.user.biz) return res.status(401).send("Access denied.");
   let user = await User.findById(req.user._id);
+  const card = await Card.find({ bizNumber: req.params.bizNumber });
+
   res.send(user.cards);
-});
+}); */
 
 const getCards = async (cardsArray) => {
   const cards = await Card.find({ bizNumber: { $in: cardsArray } });
   return cards;
 };
 
-/*router.get("/cards", auth, async (req, res) => {
+router.get("/cards", auth, async (req, res) => {
   if (!req.query.numbers) res.status(400).send("Missing numbers data");
 
   let data = {};
@@ -39,8 +42,8 @@ const getCards = async (cardsArray) => {
 
   const cards = await getCards(data.cards);
   res.send(cards);
-}); */
-
+});
+// * Update users wish-list cards.
 router.patch("/cards", auth, async (req, res) => {
   const { error } = validateCards(req.body);
   if (error) res.status(400).send(error.details[0].message);
