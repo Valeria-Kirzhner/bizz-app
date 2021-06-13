@@ -1,9 +1,20 @@
 import React, { Component } from "react";
 import PageHeader from "./common/pageHeader";
+import cardService from "../services/cardService";
 
 class wishlist extends Component {
-  state = {};
+  state = {
+    cards: {},
+  };
+
+  async componentDidMount() {
+    const { data } = await cardService.getMyCards();
+    if (data.length > 0) this.setState({ cards: data });
+  }
+
   render() {
+    const { cards } = this.state;
+
     return (
       <div className="container">
         <PageHeader titleText="My wishlist cards" />
