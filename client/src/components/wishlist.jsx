@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import PageHeader from "./common/pageHeader";
 import cardService from "../services/cardService";
+import FoundCard from "./foundCard";
 
 class wishlist extends Component {
   state = {
-    cards: {},
+    cards: [],
+    found: [],
   };
 
   async componentDidMount() {
-    const { data } = await cardService.getMyCards();
+    const { data } = await cardService.getWishlist();
     if (data.length > 0) this.setState({ cards: data });
+    console.log(this.state.cards);
   }
 
   render() {
-    const { cards } = this.state;
-
     return (
       <div className="container">
         <PageHeader titleText="My wishlist cards" />
