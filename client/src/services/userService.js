@@ -2,6 +2,14 @@ import http from "./httpService";
 import { apiUrl } from "../config.json";
 import jwtDecode from "jwt-decode";
 
+export function toggleWishlist() {
+  let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  let userId = userInfo._id;
+  console.log(userId);
+
+  // return http.patch(`${apiUrl}/users/cards/`);
+}
+
 const tokenKey = "token";
 
 export function getJwt() {
