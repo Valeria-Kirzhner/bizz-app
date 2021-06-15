@@ -32,7 +32,9 @@ class wishlist extends Component {
         <div className="row">
           <div className="col-12">
             {cards.length > 0 &&
-              cards.map((card) => <FoundCard card={card} key={card._id} />)}
+              cards.map((card) => (
+                <FoundCard card={card} key={card._id} check={this.check} />
+              ))}
           </div>
         </div>
       </div>
