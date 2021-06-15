@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const FoundCard = ({ card }) => {
+const FoundCard = ({ card, check }) => {
   return (
     <div className="col-md-6 col-lg-4 mt-3">
       <div className="card">
@@ -22,9 +22,9 @@ const FoundCard = ({ card }) => {
             <br />
             {card.bizAddress}
           </p>
-          <Link to={"/users/cards"}>
+          <Link to={"/users/cards"} onClick={() => check(card.__bizNumber)}>
             <i class="far fa-heart mr-2 me-2"></i>Add To WishList
-          </Link>{" "}
+          </Link>
         </div>
       </div>
     </div>
