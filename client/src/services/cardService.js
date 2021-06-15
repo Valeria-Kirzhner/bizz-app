@@ -4,7 +4,6 @@ import { apiUrl } from "../config.json";
 export function getWishlist() {
   //get users wishlist cards
   const cards = localStorage.getItem("wishlist");
-  console.log(cards);
   return http.get(`${apiUrl}/users/cards/?numbers=${cards}`);
 }
 
