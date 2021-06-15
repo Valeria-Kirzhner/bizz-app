@@ -14,6 +14,13 @@ class wishlist extends Component {
     console.log(this.state.cards);
   }
 
+  check = (cardId) => {
+    const cards = localStorage.getItem("wishlist");
+    const res = cards.includes(cardId);
+    if (res === false) {
+      console.log("ok");
+    }
+  };
   render() {
     let { cards } = this.state;
     return (
@@ -24,7 +31,8 @@ class wishlist extends Component {
         </div>
         <div className="row">
           <div className="col-12">
-            {cards.length > 0 && cards.map((card) => <FoundCard card={card} />)}
+            {cards.length > 0 &&
+              cards.map((card) => <FoundCard card={card} key={card._id} />)}
           </div>
         </div>
       </div>
