@@ -2,7 +2,7 @@ import http from "./httpService";
 import { apiUrl } from "../config.json";
 import jwtDecode from "jwt-decode";
 
-export function toggleWishlist(bizNumber) {
+export function addWishlistServer(bizNumber) {
   //let userInfo = JSON.parse(localStorage.getItem("userInfo"));
   //let userId = userInfo._id;
   let card = [bizNumber];
@@ -42,5 +42,6 @@ const userService = {
   getCurrentUser,
   logout,
   getJwt,
+  addWishlistServer,
 };
 export default userService;
