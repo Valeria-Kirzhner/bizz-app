@@ -2,7 +2,7 @@ import http from "./httpService";
 import { apiUrl } from "../config.json";
 
 export function getWishlist() {
-  //get users wishlist cards
+  //get all users wishlist cards with their details (to render in myCards).
   const cards = localStorage.getItem("wishlist");
   return http.get(`${apiUrl}/users/cards/?numbers=${cards}`);
 }
