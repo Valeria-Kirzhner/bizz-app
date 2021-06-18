@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PageHeader from "./common/pageHeader";
 import cardService from "../services/cardService";
 import FoundCard from "./foundCard";
+import Search from "./search";
 
 class wishlist extends Component {
   state = {
@@ -18,15 +19,18 @@ class wishlist extends Component {
     const res = cards.includes(cardId);
     if (res === false) {
       // if the wishlist array not includes the chousen card.
-      console.log("is not unclude");
+      this.addToWishlist(cardId);
     } else {
       // if the wishlist array includes the chousen card.
-      console.log("it is include");
+      this.removeFromWishlist(cardId);
     }
   };
-  add = (thecardId) => {
-    console.log(thecardId);
-  };
+  addToWishlist(thecardId) {
+    console.log("add " + thecardId);
+  }
+  removeFromWishlist(thecardId) {
+    console.log("remove " + thecardId);
+  }
 
   render() {
     let { cards } = this.state;
@@ -34,7 +38,9 @@ class wishlist extends Component {
       <div className="container">
         <PageHeader titleText="My wishlist cards" />
         <div className="row">
-          <div className="col-12 mt-4"></div>
+          <div className="col-12 mt-4">
+            <Search />
+          </div>
         </div>
         <div className="row">
           <div className="col-12">
