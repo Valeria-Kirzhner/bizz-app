@@ -19,11 +19,30 @@ class Search extends Form {
       bizImage: "",
     },
     errors: {},
+    cards: [],
   };
 
   schema = {
     bizNumber: Joi.string().required().min(6).label("bizNumber"),
   };
+
+  check = (cardId) => {
+    const cards = localStorage.getItem("wishlist");
+    const res = cards.includes(cardId);
+    if (res === false) {
+      // if the wishlist array not includes the chousen card.
+      this.addToWishlist(cardId);
+    } else {
+      // if the wishlist array includes the chousen card.
+      this.removeFromWishlist(cardId);
+    }
+  };
+  addToWishlist(thecardId) {
+    console.log("add " + thecardId);
+  }
+  removeFromWishlist(thecardId) {
+    console.log("remove " + thecardId);
+  }
 
   doSubmit = async () => {
     const {
@@ -58,7 +77,11 @@ class Search extends Form {
             </form>
           </div>
         </div>
-        <div>{card.bizName && <FoundCard card={card} />}</div>
+        <div>
+          {card.bizName && (
+            <FoundCard card={card} key={card._id} check={this.check} />
+          )}
+        </div>
       </div>
     );
   }
