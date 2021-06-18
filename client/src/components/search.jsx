@@ -4,6 +4,7 @@ import Form from "./common/form";
 import { toast } from "react-toastify";
 import cardService from "../services/cardService";
 import FoundCard from "./foundCard";
+import userService from "../services/userService";
 
 class Search extends Form {
   state = {
@@ -37,9 +38,13 @@ class Search extends Form {
       this.removeFromWishlist(cardId);
     }
   };
-  addToWishlist(thecardId) {
-    console.log("add " + thecardId);
-  }
+
+  addToWishlist = async (thecardId) => {
+    await userService.addToWishlist(thecardId);
+    toast("Card is added to your wishlist.");
+    this.props.history.replace("/users/cards");
+  };
+
   removeFromWishlist(thecardId) {
     console.log("remove " + thecardId);
   }
