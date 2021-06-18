@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import PageHeader from "./common/pageHeader";
+import { toast } from "react-toastify";
 import cardService from "../services/cardService";
 import FoundCard from "./foundCard";
+import userService from "../services/userService";
 
 class wishlist extends Component {
   state = {
@@ -24,9 +26,11 @@ class wishlist extends Component {
       this.removeFromWishlist(cardId);
     }
   };
-  addToWishlist(thecardId) {
-    console.log("add " + thecardId);
-  }
+  addToWishlist = async (thecardId) => {
+    await userService.addWishlistServer(thecardId);
+    toast("Card is added to your wishlist.");
+    this.props.history.replace("/users/cards");
+  };
   removeFromWishlist(thecardId) {
     console.log("remove " + thecardId);
   }

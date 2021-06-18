@@ -33,7 +33,7 @@ const getCards = async (cardsArray) => {
   const cards = await Card.find({ bizNumber: { $in: cardsArray } });
   return cards;
 };
-
+// * Get all card details of the wishlist cards (to render in myCards page).
 router.get("/cards", auth, async (req, res) => {
   if (!req.query.numbers) res.status(400).send("Missing numbers data");
 
@@ -43,6 +43,7 @@ router.get("/cards", auth, async (req, res) => {
   const cards = await getCards(data.cards);
   res.send(cards);
 });
+
 // * Update users wish-list cards.
 router.patch("/cards", auth, async (req, res) => {
   const { error } = validateCards(req.body);

@@ -40,7 +40,7 @@ class Search extends Form {
   };
 
   addToWishlist = async (thecardId) => {
-    await userService.addToWishlist(thecardId);
+    await userService.addWishlistServer(thecardId);
     toast("Card is added to your wishlist.");
     this.props.history.replace("/users/cards");
   };
