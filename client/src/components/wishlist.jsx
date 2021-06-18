@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PageHeader from "./common/pageHeader";
 import cardService from "../services/cardService";
 import FoundCard from "./foundCard";
-import Search from "./search";
 
 class wishlist extends Component {
   state = {
@@ -38,9 +37,7 @@ class wishlist extends Component {
       <div className="container">
         <PageHeader titleText="My wishlist cards" />
         <div className="row">
-          <div className="col-12 mt-4">
-            <Search />
-          </div>
+          <div className="col-12 mt-4"></div>
         </div>
         <div className="row">
           <div className="col-12">

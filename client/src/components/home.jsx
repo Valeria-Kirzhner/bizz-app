@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PageHeader from "./common/pageHeader";
+import Search from "./search";
 
 class Home extends Component {
   state = {};
@@ -10,6 +11,8 @@ class Home extends Component {
         <div className="col-12 mt-4">
           <h3 className="text-secondary">Find card:</h3>
         </div>
+        <Search />
+
         <div className="row">
           <div className="col-12 mt-4"></div>
         </div>
