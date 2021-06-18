@@ -11,16 +11,23 @@ class wishlist extends Component {
   async componentDidMount() {
     const { data } = await cardService.getWishlist();
     if (data.length > 0) this.setState({ cards: data });
-    console.log(this.state.cards);
   }
 
   check = (cardId) => {
     const cards = localStorage.getItem("wishlist");
     const res = cards.includes(cardId);
     if (res === false) {
-      console.log("ok");
+      // if the wishlist array not includes the chousen card.
+      console.log("is not unclude");
+    } else {
+      // if the wishlist array includes the chousen card.
+      console.log("it is include");
     }
   };
+  add = (thecardId) => {
+    console.log(thecardId);
+  };
+
   render() {
     let { cards } = this.state;
     return (
