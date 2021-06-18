@@ -23,7 +23,7 @@ const FoundCard = ({ card, check }) => {
             {card.bizAddress}
           </p>
           <Link to={"/users/cards"} onClick={() => check(card.__bizNumber)}>
-            <i class="far fa-heart mr-2 me-2"></i>Add To WishList
+            <i className="far fa-heart mr-2 me-2"></i>Add To WishList
           </Link>
         </div>
       </div>
