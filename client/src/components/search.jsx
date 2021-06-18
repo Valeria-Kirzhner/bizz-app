@@ -20,7 +20,7 @@ class Search extends Form {
       bizImage: "",
     },
     errors: {},
-    cards: [],
+    wishlist: [],
   };
 
   schema = {
@@ -28,26 +28,38 @@ class Search extends Form {
   };
 
   check = (cardId) => {
-    const cards = localStorage.getItem("wishlist");
-    const res = cards.includes(cardId);
+    let { wishlist } = this.state;
+    const list = localStorage.getItem("wishlist");
+    wishlist.push(list);
+    console.log(wishlist);
+    //this.setState({ cards: wishlist });
+    // console.log(this.state.cards);
+    /*const res = cards.includes(cardId);
     if (res === false) {
       // if the wishlist array not includes the chousen card.
+
       this.addToWishlist(cardId);
     } else {
       // if the wishlist array includes the chousen card.
+      
       this.removeFromWishlist(cardId);
-    }
+    }*/
   };
 
-  addToWishlist = async (thecardId) => {
-    await userService.addWishlistServer(thecardId);
-    toast("Card is added to your wishlist.");
-    this.props.history.replace("/users/cards");
+  addToWishlist = (thecardId) => {
+    let cards = localStorage.getItem("wishlist");
+    console.log(typeof cards);
+    //cards = cards.push(thecardId);
+    // console.log(cards);
+
+    //await userService.addWishlistServer(thecardId);
+    // toast("Card is added to your wishlist.");
+    //this.props.history.replace("/users/cards");
   };
 
-  removeFromWishlist(thecardId) {
+  removeFromWishlist = (thecardId) => {
     console.log("remove " + thecardId);
-  }
+  };
 
   doSubmit = async () => {
     const {
