@@ -68,7 +68,12 @@ class Navbar extends Component {
               )}
               {user && (
                 <React.Fragment>
-                  <li className="nav-item">{user.name}</li>
+                  <li className="nav-item">
+                    <NavLink className="nav-item nav-link" to="#">
+                      {localStorage.getItem("userName")}
+                    </NavLink>
+                  </li>
+
                   <li className="nav-item">
                     <NavLink className="nav-item nav-link" to="/logout">
                       Logout
