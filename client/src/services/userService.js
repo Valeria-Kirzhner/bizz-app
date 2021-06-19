@@ -34,6 +34,7 @@ export async function login(email, password) {
 
   localStorage.setItem(tokenKey, data.token);
   localStorage.setItem("wishlist", data.wishlist);
+  localStorage.setItem("userName", data.userName);
   localStorage.setItem("userInfo", JSON.stringify(getCurrentUser()));
 }
 
