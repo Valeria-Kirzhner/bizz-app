@@ -76,14 +76,12 @@ class Search extends Form {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-sm-4 col-sm-offset-4 ">
-            <form onSubmit={this.handleSubmit} autoComplete="off" method="POST">
-              <div className="input-group rounded mt-3">
-                {this.renderInput("bizNumber", "", "number")}
-                {this.renderButton("Search")}
-              </div>
-            </form>
-          </div>
+          <form onSubmit={this.handleSubmit} autoComplete="off" method="POST">
+            <div className="col-lg-6">
+              {this.renderInput("bizNumber", "", "number")}
+              {this.renderButton("Search")}
+            </div>
+          </form>
         </div>
         <div>
           {card.bizName && (
