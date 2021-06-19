@@ -3,8 +3,6 @@ import PageHeader from "./common/pageHeader";
 import { toast } from "react-toastify";
 import cardService from "../services/cardService";
 import FoundCard from "./foundCard";
-import userService from "../services/userService";
-import { stringify } from "joi-browser";
 
 class wishlist extends Component {
   state = {
@@ -38,10 +36,7 @@ class wishlist extends Component {
     console.log(list);
     localStorage.setItem("wishlist", list);
     this.updateDB();
-
-    //await userService.addWishlistServer(thecardId);
-    // toast("Card is added to your wishlist.");
-    //this.props.history.replace("/users/cards");
+    toast("Card is added to your wishlist.");
   };
 
   removeFromWishlist = (thecardId, list) => {
@@ -51,6 +46,7 @@ class wishlist extends Component {
     console.log(list);
     localStorage.setItem("wishlist", list);
     this.updateDB();
+    toast("Card is remover from your wishlist.");
   };
 
   updateDB = async () => {
