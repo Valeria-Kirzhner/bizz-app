@@ -3,8 +3,6 @@ import { apiUrl } from "../config.json";
 import jwtDecode from "jwt-decode";
 
 export function addWishlistServer(bizNumber) {
-  //let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  //let userId = userInfo._id;
   let card = [bizNumber];
   return http.patch(`${apiUrl}/users/cards/`, card);
 }
@@ -19,6 +17,7 @@ export function getJwt() {
 export function logout() {
   localStorage.removeItem(tokenKey);
   localStorage.removeItem("userInfo");
+  localStorage.removeItem("wishlist");
 }
 
 export function getCurrentUser() {

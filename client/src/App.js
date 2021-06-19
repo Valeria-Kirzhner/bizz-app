@@ -24,6 +24,7 @@ class App extends Component {
   componentDidMount() {
     const user = userService.getCurrentUser();
     this.setState({ user });
+    console.log(user);
   }
 
   render() {
