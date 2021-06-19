@@ -1,11 +1,9 @@
 import React from "react";
-import Joi, { push } from "joi-browser";
+import Joi from "joi-browser";
 import Form from "./common/form";
 import { toast } from "react-toastify";
 import cardService from "../services/cardService";
 import FoundCard from "./foundCard";
-import userService from "../services/userService";
-import { stringify } from "joi-browser";
 
 class Search extends Form {
   state = {
@@ -47,9 +45,7 @@ class Search extends Form {
     list = list + `,${thecardId}`;
     console.log(list);
     localStorage.setItem("wishlist", list);
-    //await userService.addWishlistServer(thecardId);
-    // toast("Card is added to your wishlist.");
-    //this.props.history.replace("/users/cards");
+    toast("Card is added to your wishlist.");
   };
 
   removeFromWishlist = (thecardId, list) => {
@@ -58,6 +54,7 @@ class Search extends Form {
     list = list.replace(`,${thecardId}`, "");
     console.log(list);
     localStorage.setItem("wishlist", list);
+    toast("Card is remover from your wishlist.");
   };
 
   doSubmit = async () => {
