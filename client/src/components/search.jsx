@@ -21,7 +21,6 @@ class Search extends Form {
       bizImage: "",
     },
     errors: {},
-    wishlist: [],
   };
 
   schema = {
@@ -30,16 +29,14 @@ class Search extends Form {
 
   check = (cardId) => {
     let list = localStorage.getItem("wishlist");
-
     const res = list.includes(cardId);
 
     if (res === false) {
       // if the wishlist array not includes the chousen card.
-      console.log("no");
+
       this.addToWishlist(cardId, list);
     } else {
       // if the wishlist array includes the chousen card.
-      console.log("yes");
 
       this.removeFromWishlist(cardId, list);
     }

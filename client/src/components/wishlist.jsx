@@ -23,11 +23,10 @@ class wishlist extends Component {
 
     if (res === false) {
       // if the wishlist array not includes the chousen card.
-      console.log("no");
+
       this.addToWishlist(cardId, list);
     } else {
       // if the wishlist array includes the chousen card.
-      console.log("yes");
 
       this.removeFromWishlist(cardId, list);
     }
@@ -38,6 +37,8 @@ class wishlist extends Component {
     list = list + `,${thecardId}`;
     console.log(list);
     localStorage.setItem("wishlist", list);
+    this.updateDB();
+
     //await userService.addWishlistServer(thecardId);
     // toast("Card is added to your wishlist.");
     //this.props.history.replace("/users/cards");
@@ -49,7 +50,14 @@ class wishlist extends Component {
     list = list.replace(`,${thecardId}`, "");
     console.log(list);
     localStorage.setItem("wishlist", list);
+    this.updateDB();
   };
+
+  updateDB = async () => {
+    const { data } = await cardService.getWishlist();
+    if (data.length > 0) this.setState({ cards: data });
+  };
+
   render() {
     let { cards } = this.state;
 
