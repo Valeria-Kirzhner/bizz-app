@@ -4,6 +4,7 @@ import Search from "./search";
 
 class Home extends Component {
   state = {};
+
   render() {
     return (
       <div className="container ">
