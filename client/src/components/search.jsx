@@ -1,10 +1,11 @@
 import React from "react";
-import Joi from "joi-browser";
+import Joi, { push } from "joi-browser";
 import Form from "./common/form";
 import { toast } from "react-toastify";
 import cardService from "../services/cardService";
 import FoundCard from "./foundCard";
 import userService from "../services/userService";
+import { stringify } from "joi-browser";
 
 class Search extends Form {
   state = {
@@ -28,37 +29,38 @@ class Search extends Form {
   };
 
   check = (cardId) => {
-    let { wishlist } = this.state;
-    const list = localStorage.getItem("wishlist");
-    wishlist.push(list);
-    console.log(wishlist);
-    //this.setState({ cards: wishlist });
-    // console.log(this.state.cards);
-    /*const res = cards.includes(cardId);
+    let list = localStorage.getItem("wishlist");
+
+    const res = list.includes(cardId);
+
     if (res === false) {
       // if the wishlist array not includes the chousen card.
-
-      this.addToWishlist(cardId);
+      console.log("no");
+      this.addToWishlist(cardId, list);
     } else {
       // if the wishlist array includes the chousen card.
-      
-      this.removeFromWishlist(cardId);
-    }*/
+      console.log("yes");
+
+      this.removeFromWishlist(cardId, list);
+    }
   };
 
-  addToWishlist = (thecardId) => {
-    let cards = localStorage.getItem("wishlist");
-    console.log(typeof cards);
-    //cards = cards.push(thecardId);
-    // console.log(cards);
-
+  addToWishlist = (thecardId, list) => {
+    console.log("to add");
+    list = list + `,${thecardId}`;
+    console.log(list);
+    localStorage.setItem("wishlist", list);
     //await userService.addWishlistServer(thecardId);
     // toast("Card is added to your wishlist.");
     //this.props.history.replace("/users/cards");
   };
 
-  removeFromWishlist = (thecardId) => {
-    console.log("remove " + thecardId);
+  removeFromWishlist = (thecardId, list) => {
+    console.log("to remove");
+    console.log(list);
+    list = list.replace(`,${thecardId}`, "");
+    console.log(list);
+    localStorage.setItem("wishlist", list);
   };
 
   doSubmit = async () => {

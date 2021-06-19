@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import cardService from "../services/cardService";
 import FoundCard from "./foundCard";
 import userService from "../services/userService";
+import { stringify } from "joi-browser";
 
 class wishlist extends Component {
   state = {
@@ -16,27 +17,42 @@ class wishlist extends Component {
   }
 
   check = (cardId) => {
-    const cards = localStorage.getItem("wishlist");
-    const res = cards.includes(cardId);
+    let list = localStorage.getItem("wishlist");
+
+    const res = list.includes(cardId);
+
     if (res === false) {
       // if the wishlist array not includes the chousen card.
-      this.addToWishlist(cardId);
+      console.log("no");
+      this.addToWishlist(cardId, list);
     } else {
       // if the wishlist array includes the chousen card.
-      this.removeFromWishlist(cardId);
+      console.log("yes");
+
+      this.removeFromWishlist(cardId, list);
     }
   };
-  addToWishlist = async (thecardId) => {
-    await userService.addWishlistServer(thecardId);
-    toast("Card is added to your wishlist.");
-    this.props.history.replace("/users/cards");
-  };
-  removeFromWishlist(thecardId) {
-    console.log("remove " + thecardId);
-  }
 
+  addToWishlist = (thecardId, list) => {
+    console.log("to add");
+    list = list + `,${thecardId}`;
+    console.log(list);
+    localStorage.setItem("wishlist", list);
+    //await userService.addWishlistServer(thecardId);
+    // toast("Card is added to your wishlist.");
+    //this.props.history.replace("/users/cards");
+  };
+
+  removeFromWishlist = (thecardId, list) => {
+    console.log("to remove");
+    console.log(list);
+    list = list.replace(`,${thecardId}`, "");
+    console.log(list);
+    localStorage.setItem("wishlist", list);
+  };
   render() {
     let { cards } = this.state;
+
     return (
       <div className="container">
         <PageHeader titleText="My wishlist cards" />
