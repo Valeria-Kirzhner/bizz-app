@@ -41,18 +41,13 @@ class Search extends Form {
   };
 
   addToWishlist = (thecardId, list) => {
-    console.log("to add");
     list = list + `,${thecardId}`;
-    console.log(list);
     localStorage.setItem("wishlist", list);
     toast("Card is added to your wishlist.");
   };
 
   removeFromWishlist = (thecardId, list) => {
-    console.log("to remove");
-    console.log(list);
     list = list.replace(`,${thecardId}`, "");
-    console.log(list);
     localStorage.setItem("wishlist", list);
     toast("Card is remover from your wishlist.");
   };
