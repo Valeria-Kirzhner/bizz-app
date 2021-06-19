@@ -7,6 +7,8 @@ const app = express();
 const http = require("http").Server(app);
 const mongoose = require("mongoose");
 
+const PORT = process.env.PORT || 3900;
+
 mongoose
   .connect("mongodb://localhost/biz_app_api", {
     useNewUrlParser: true,
@@ -22,5 +24,4 @@ app.use("/api/users", users);
 app.use("/api/auth", auth);
 app.use("/api/cards", cards);
 
-const port = 3900;
-http.listen(port, () => console.log(`Listening on port ${port}...`));
+http.listen(PORT, () => console.log(`Listening on port ${PORT}...`));
