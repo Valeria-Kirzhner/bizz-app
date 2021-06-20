@@ -14,18 +14,11 @@ router.post("/", async (req, res) => {
   const validPassword = await bcrypt.compare(req.body.password, user.password);
   if (!validPassword) return res.status(400).send("Invalid email or password.");
 
-  try {
-    const userToken = await user.generateAuthToken();
-
-    res.json({
-      token: userToken,
-      wishlist: user.cards,
-      userName: user.name,
-    });
-  } catch (err) {
-    console.log(err);
-    return res.status(400).send("Couldn't generate toekn");
-  }
+  res.json({
+    token: user.generateAuthToken(),
+    user_id: user._id,
+    name: user.name,
+  });
 });
 
 function validate(req) {
