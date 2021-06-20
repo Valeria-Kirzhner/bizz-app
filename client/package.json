@@ -21,6 +21,7 @@
     "react-toastify": "^7.0.4",
     "web-vitals": "^1.1.2"
   },
+  "proxy": "http://localhost:3900",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
