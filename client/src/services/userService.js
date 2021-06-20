@@ -1,10 +1,9 @@
 import http from "./httpService";
-import { apiUrl } from "../config.json";
 import jwtDecode from "jwt-decode";
 
 export function addWishlistServer(bizNumber) {
   let card = [bizNumber];
-  return http.patch(`${apiUrl}/users/cards/`, card);
+  return http.patch("/users/cards/", card);
 }
 
 const tokenKey = "token";
@@ -30,7 +29,7 @@ export function getCurrentUser() {
 }
 
 export async function login(email, password) {
-  const { data } = await http.post(`${apiUrl}/auth`, { email, password });
+  const { data } = await http.post("/auth", { email, password });
 
   localStorage.setItem(tokenKey, data.token);
   localStorage.setItem("wishlist", data.wishlist);

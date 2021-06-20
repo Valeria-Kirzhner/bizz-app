@@ -3,7 +3,6 @@ import PageHeader from "./common/pageHeader";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import http from "../services/httpService";
-import { apiUrl } from "../config.json";
 import { toast } from "react-toastify";
 import userService from "../services/userService";
 import { Redirect } from "react-router-dom";
@@ -25,7 +24,7 @@ class Signup extends Form {
     data.biz = false;
 
     try {
-      await http.post(`${apiUrl}/users`, data);
+      await http.post("/users", data);
       toast("A new acoount is opened");
       this.props.history.replace("/signin");
     } catch (ex) {

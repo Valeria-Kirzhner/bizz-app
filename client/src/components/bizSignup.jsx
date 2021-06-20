@@ -3,7 +3,6 @@ import PageHeader from "./common/pageHeader";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import http from "../services/httpService";
-import { apiUrl } from "../config.json";
 import userService from "../services/userService";
 import { Redirect } from "react-router-dom";
 
@@ -24,7 +23,7 @@ class BizSignup extends Form {
     data.biz = true;
 
     try {
-      await http.post(`${apiUrl}/users`, data);
+      await http.post("/users", data);
       await userService.login(data.email, data.password);
       window.location = "/create-card";
     } catch (ex) {
