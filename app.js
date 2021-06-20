@@ -33,7 +33,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 mongoose
-  .connect("mongodb://localhost/biz_app_api", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/biz_app_api", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
