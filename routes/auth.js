@@ -16,8 +16,9 @@ router.post("/", async (req, res) => {
 
   res.json({
     token: user.generateAuthToken(),
-    user_id: user._id,
-    name: user.name,
+    /*userName: user._id,*/
+    userName: user.name,
+    wishlist: user.cards,
   });
 });
 
