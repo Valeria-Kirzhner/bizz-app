@@ -23,7 +23,7 @@
     "lodash": "^4.17.21",
     "mongoose": "^5.12.10",
     "path": "^0.12.7",
-    "serve-favicon": "^2.5.0",
+    "serve-favicon": "^2.5.0"
     
   }
 }
