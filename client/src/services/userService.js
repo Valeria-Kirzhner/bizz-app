@@ -32,8 +32,8 @@ export async function login(email, password) {
   const { data } = await http.post("/auth", { email, password });
 
   localStorage.setItem(tokenKey, data.token);
-  localStorage.setItem("wishlist", JSON.stringify(data.wishlist));
-  localStorage.setItem("userName", JSON.parse(data.userName));
+  localStorage.setItem("wishlist", data.wishlist);
+  localStorage.setItem("userName", data.userName);
   localStorage.setItem("userInfo", JSON.stringify(getCurrentUser()));
 }
 
