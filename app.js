@@ -38,6 +38,7 @@ mongoose
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB..."));
 
+app.use(express.static(__dirname)); //here is important thing - no static directory, because all static :)
 app.use(express.json()); // midelware that make all req & res in the app be JSON type only.
 app.use(favicon(path.join(__dirname, "client/build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "client/build")));
@@ -54,9 +55,5 @@ app.get("/*", function (req, res) {
     res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }*/
-
-app.use("/users", users);
-app.use("/auth", auth);
-app.use("/cards", cards);
 
 http.listen(PORT, () => console.log(`Listening on port ${PORT}...`));
