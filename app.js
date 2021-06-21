@@ -43,6 +43,10 @@ app.use(express.json()); // midelware that make all req & res in the app be JSON
 app.use(favicon(path.join(__dirname, "client/build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "client/build")));
 
+app.use("/auth/", auth);
+app.use("/users/", users);
+app.use("/cards/", cards);
+
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
