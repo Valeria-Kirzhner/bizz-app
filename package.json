@@ -4,7 +4,6 @@
   "description": "",
   "main": "app.js",
   "homepage": ".",
-
   "scripts": {
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,6 +23,5 @@
     "mongoose": "^5.12.10",
     "path": "^0.12.7",
     "serve-favicon": "^2.5.0"
-    
   }
 }
