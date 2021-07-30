@@ -78,9 +78,12 @@ class EditCard extends Form {
               {this.renderInput("bizPhone", "Business Phone")}
               {this.renderInput("bizImage", "Business Image")}
               {this.renderButton("Update Card")}
-              <Link className="btn btn-secondary ms-2 mt-2" to="/my-cards">
-                Not now
-              </Link>
+              <button
+                className="btn btn-secondary ml-2"
+                onClick={this.handleCancel}
+              >
+                Cancel
+              </button>
             </form>
           </div>
         </div>
