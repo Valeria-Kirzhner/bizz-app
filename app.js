@@ -2,7 +2,7 @@ const users = require("./routes/users");
 const auth = require("./routes/auth");
 const cards = require("./routes/cards");
 const express = require("express");
-//const cors = require("cors");
+const cors = require("cors");
 const app = express();
 const http = require("http").Server(app);
 const mongoose = require("mongoose");
@@ -31,14 +31,10 @@ const whitelist = [
 }; */
 
 mongoose
-  .connect(
-    process.env.MONGODB_URI ||
-      "mongodb+srv://lera:lera123456@cluster0.myvvt.mongodb.net/bizz-app?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/biz_app_api", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB..."));
 
