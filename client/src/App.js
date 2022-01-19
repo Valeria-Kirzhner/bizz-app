@@ -35,7 +35,7 @@ class App extends Component {
         <header>
           <Navbar user={user} />
         </header>
-        <main style={{ minHeight: 900 }}>
+        <main>
           <Switch>
             <ProtectedRoute
               path="/my-cards/edit/:id"

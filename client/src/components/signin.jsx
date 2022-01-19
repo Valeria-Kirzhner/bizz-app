@@ -33,7 +33,7 @@ class Signin extends Form {
 
     return (
       <div className="container">
-        <PageHeader titleText="Signin to Bizz App" />
+        <PageHeader titleText="Signin" />
         <div className="row">
           <div className="col-12">
             <p>You can signin here with your account!</p>

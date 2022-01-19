@@ -38,12 +38,7 @@ class Signup extends Form {
 
     return (
       <div className="container">
-        <PageHeader titleText="Bizz App Signup Page" />
-        <div className="row">
-          <div className="col-12 mt-4">
-            <h2>Signup for Bizz App</h2>
-          </div>
-        </div>
+        <PageHeader titleText="Signup Page" />
         <div className="row">
           <div className="col-12">
             <p>You can open new account for free!</p>

@@ -8,3 +8,10 @@
   opacity: 0.5;
   height: 100%;
 }
+main {
+  height: 80vh;
+  overflow: scroll;
+}
+footer {
+  height: 5vh;
+}

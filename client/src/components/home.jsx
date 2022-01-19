@@ -4,6 +4,7 @@ import cardService from "../services/cardService";
 import Search from "./search";
 import FoundCard from "./foundCard";
 import { toast } from "react-toastify";
+import userService from "../services/userService";
 
 class Home extends Component {
   state = {
@@ -14,18 +15,22 @@ class Home extends Component {
     if (data.length > 0) this.setState({ cards: data });
   }
   check = (cardId) => {
-    let list = localStorage.getItem("wishlist");
+    if (userService.getCurrentUser()) {
+      let list = localStorage.getItem("wishlist");
 
-    const res = list.includes(cardId);
+      const res = list.includes(cardId);
 
-    if (res === false) {
-      // if the wishlist array not includes the chousen card.
+      if (res === false) {
+        // if the wishlist array not includes the chousen card.
 
-      this.addToWishlist(cardId, list);
+        this.addToWishlist(cardId, list);
+      } else {
+        // if the wishlist array includes the chousen card.
+
+        this.removeFromWishlist(cardId, list);
+      }
     } else {
-      // if the wishlist array includes the chousen card.
-
-      this.removeFromWishlist(cardId, list);
+      window.location = "/signin";
     }
   };
   addToWishlist = (thecardId, list) => {

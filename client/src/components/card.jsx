@@ -9,7 +9,7 @@ const Card = ({ card, deleteCardClientSide }) => {
           className="p-2"
           src={card.bizImage}
           width="100"
-          style={{ minHeight: 100 }}
+          style={{ height: 100 }}
           alt={card.bizName}
         />
         <div className="card-body">
