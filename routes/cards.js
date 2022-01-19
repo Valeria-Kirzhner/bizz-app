@@ -4,6 +4,12 @@ const { Card, validateCard, generateBizNumber } = require("../models/card");
 const auth = require("../middleware/auth");
 const router = express.Router();
 
+router.get("/", async (req, res) => {
+  const cards = await Card.find({});
+  if (!cards) return res.status(404).send("Error, no cards was found.");
+  res.send(cards);
+});
+
 router.get("/search-card/:bizNumber", async (req, res) => {
   const card = await Card.findOne({ bizNumber: req.params.bizNumber });
   if (!card) return res.status(404).send("No card was found.");

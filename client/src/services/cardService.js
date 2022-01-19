@@ -31,6 +31,9 @@ export function getMyCards() {
 export function createCard(card) {
   return http.post("/cards", card);
 }
+export function get() {
+  return http.get("/cards");
+}
 
 const cardService = {
   createCard,
@@ -40,6 +43,7 @@ const cardService = {
   deleteCard,
   searchCard,
   getWishlist,
+  get,
 };
 
 export default cardService;
