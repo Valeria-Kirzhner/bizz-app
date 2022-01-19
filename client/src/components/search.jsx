@@ -88,6 +88,7 @@ class Search extends Form {
             <FoundCard card={card} key={card._id} check={this.check} />
           )}
         </div>
+        <hr className="mt-5 mb-5" />
       </div>
     );
   }
